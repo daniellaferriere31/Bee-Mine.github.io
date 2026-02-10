@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine? 💕</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="card" id="card">
+    <div class="heart-bg"></div>
+    <h1>💘 Will You Be My Valentine? 💘</h1>
+    <p id="question-text">You make my world brighter every single day... and I can't imagine it without you.</p>
+
+    <div class="buttons" id="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" onclick="sayNo()">No 🙈</button>
+    </div>
+
+    <div id="response" class="response hidden"></div>
+
+    <p class="footer">Crafted with endless love, just for you ❤️</p>
+  </div>
+
+  <script>
+    function sayYes() {
+      const card = document.getElementById('card');
+      const questionText = document.getElementById('question-text');
+      const buttons = document.getElementById('buttons');
+      const response = document.getElementById('response');
+
+      card.classList.add('yes-selected');
+
+      questionText.innerHTML = "Yayyyy!!! 🥰💕 You're officially my Valentine forever!";
+
+      buttons.classList.add('hidden');
+
+      response.innerHTML = `
+        <p class="heart-message">
+          My heart is exploding right now...<br><br>
+          Your smile and dimples lights up my days, your intellect is my favorite thing about you,<br>
+          and just knowing you're mine makes everything feel like magic ✨<br><br>
+          Thank you for saying yes. You're my everything.<br>
+          <span class="love-big">I love you more than words can say. 💗</span>
+        </p>
+
+        <div class="itinerary">
+          <h2>Our Dreamy Philly Weekend Escape 💕</h2>
+          <p>A perfect blend of luxury, relaxation, and us-time...</p>
+          
+          <div class="day-card">
+            <div class="day-icon">🌙</div>
+            <h3>Friday – Cozy Arrival Night</h3>
+            <p>Check into <strong>The Logan Philadelphia</strong> at 7 PM.<br>
+            Elegant room in the heart of the city – order in room service, pop some non-alcoholic bubbly, cuddle under soft lights, and lose ourselves in each other. 🛏️🍾 Pure intimacy, no distractions.</p>
+          </div>
+
+          <div class="day-card">
+            <div class="day-icon">🧖‍♀️</div>
+            <h3>Saturday – Lazy Luxury & Bliss</h3>
+            <p>Sleep in endlessly (alarms forbidden 😴💤).<br>
+            Then at 4 PM, escape to <strong>Fusion Spa & Resort</strong> for ultimate pampering – saunas, pools, couple's treatments, total serenity.<br>
+            Finish with an 8 PM dinner at <strong>Estia</strong> – candlelit Greek Mediterranean elegance, fresh seafood, wine, and stolen glances across the table. 🌙🍽️</p>
+          </div>
+
+          <div class="day-card">
+            <div class="day-icon">✨</div>
+            <h3>Sunday – Pure Vibes & No Plans</h3>
+            <p>Whatever our hearts desire – lazy brunch in bed, a slow city stroll, more hotel lounging, or just staying wrapped up together.<br>
+            No rush, just us soaking in every moment. 💕🕊️</p>
+          </div>
+
+          <p class="closing">These days are going to be unforgettable.<br>Just you and me, making memories we'll cherish forever. 🥂</p>
+        </div>
+      `;
+      response.classList.remove('hidden');
+    }
+
+    function sayNo() {
+      const noBtn = event.target;
+      const messages = [
+        "Oops! That's not the vibe we're going for... Try again, love 😤💕",
+        "Invalid choice! The correct answer is sparkling with hearts~ Retry! ✨",
+        "Nooo wayyy... give the Yes button some love please 🥺👉👈",
+        "Uh uh! Let's pretend that didn't happen. Click the pretty one 💖",
+        "No isn't in our dictionary today... one more try? 😘"
+      ];
+
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+      const response = document.getElementById('response');
+      response.innerHTML = `<p class="try-again">${randomMsg}</p>`;
+      response.classList.remove('hidden');
+
+      noBtn.style.transform = 'scale(1.15) rotate(5deg)';
+      setTimeout(() => { noBtn.style.transform = 'scale(1) rotate(0)'; }, 300);
+
+      setTimeout(() => { response.classList.add('hidden'); }, 2800);
+    }
+  </script>
+
+</body>
+</html>
