@@ -1,3 +1,14 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQMDNXJPBK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YQMDNXJPBK');
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +37,12 @@
 
   <script>
     function sayYes() {
+
+    gtag('event', 'valentine_response', {
+    'response': 'yes',
+    'event_category': 'Valentine',
+    'event_label': 'They said YES! 💖'
+    });
       const card = document.getElementById('card');
       const questionText = document.getElementById('question-text');
       const buttons = document.getElementById('buttons');
@@ -79,6 +96,12 @@
     }
 
     function sayNo() {
+
+      gtag('event', 'valentine_response', {
+    'response': 'no',
+    'event_category': 'Valentine',
+    'event_label': 'They clicked No 😅'
+      });
       const noBtn = event.target;
       const messages = [
         "Oops! That's not the vibe we're going for... Try again, love 😤💕",
